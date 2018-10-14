@@ -1,4 +1,5 @@
 import turtle
+import winsound
 
 #Set up
 win = turtle.Screen()  #initialize window
@@ -88,10 +89,12 @@ while True:
     if ball.ycor() > 300:
         #ball.sety(300)
         ball.yspeed = -ball.yspeed
+        winsound.PlaySound("bounce.mp3", winsound.SND_ASYNC)
 
     if ball.ycor() < -300:
         #ball.sety(-300)
         ball.yspeed = -ball.yspeed
+        winsound.PlaySound("bounce.mp3", winsound.SND_ASYNC)
 
     if ball.xcor() > 400:
         ball.goto(0,0)
@@ -110,6 +113,8 @@ while True:
     #Paddle and ball collision
     if ball.xcor() < -380 and (ball.ycor() < paddle1.ycor() + 54 and ball.ycor() > paddle1.ycor() - 54):
         ball.xspeed = - ball.xspeed
+        winsound.PlaySound("bounce.mp3", winsound.SND_ASYNC)
         
     if ball.xcor() > 380 and (ball.ycor() < paddle2.ycor() + 54 and ball.ycor() > paddle2.ycor() - 54):
         ball.xspeed = - ball.xspeed
+        winsound.PlaySound("bounce.mp3", winsound.SND_ASYNC)
